@@ -16,8 +16,8 @@ module ReferenceDeployment {
     # ----------------------------------------------------------------------
 
     import ComCcsds.Subtopology
-    import Bmp280.Subtopology
-    import MpuImu.Subtopology
+    # import Bmp280.Subtopology
+    # import MpuImu.Subtopology
 
     # ----------------------------------------------------------------------
     # Instances used in the topology
@@ -66,8 +66,8 @@ module ReferenceDeployment {
       # Rate group 2
       rateGroupDriver.CycleOut[Ports_RateGroups.rateGroup2] -> rateGroup2.CycleIn
       rateGroup2.RateGroupMemberOut[0] -> osResources.Run
-      rateGroup2.RateGroupMemberOut[1] -> Bmp280.bmpManager.run
-      rateGroup2.RateGroupMemberOut[2] -> MpuImu.imuManager.run
+      # rateGroup2.RateGroupMemberOut[1] -> Bmp280.bmpManager.run
+      # rateGroup2.RateGroupMemberOut[2] -> MpuImu.imuManager.run
     }
 
     connections FaultProtection {
