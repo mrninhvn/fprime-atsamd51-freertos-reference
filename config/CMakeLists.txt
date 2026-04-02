@@ -1,7 +1,6 @@
 add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/ComCcsdsConfig")
 add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/ComFprimeConfig")
-# add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/Bmp280Config")
-# add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/MpuImuConfig")
+add_fprime_subdirectory("${CMAKE_CURRENT_LIST_DIR}/SX1303Config")
 
 register_fprime_config(
     fprime-featherm4-freertos-reference-config

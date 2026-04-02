@@ -7,3 +7,6 @@
 [submodule "lib/FreeRTOS-SAMD51"]
 	path = lib/FreeRTOS-SAMD51
 	url = https://github.com/BriscoeTech/Arduino-FreeRTOS-SAMD51.git
+[submodule "lib/fprime-lora"]
+	path = lib/fprime-lora
+	url = https://github.com/mrninhvn/fprime-lora
