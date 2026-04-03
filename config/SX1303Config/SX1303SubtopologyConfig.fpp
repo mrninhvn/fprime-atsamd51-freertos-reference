@@ -8,9 +8,21 @@ module SX1303 {
         constant STACK_SIZE = 2 * 1024
     }
 
-    instance sx1303Driver: Arduino.SpiDriver base id SX1303.SubtopologyConfig.BASE_ID + 0x00002000 {
+    instance sx1303PowerDriver: Arduino.GpioDriver base id SX1303.SubtopologyConfig.BASE_ID + 0x00002000 {
         phase Fpp.ToCpp.Phases.configComponents """
-        SX1303::sx1303Driver.open(&SPI, Arduino::SpiDriver::SPI_FREQUENCY_4MHZ, 10);
+        SX1303::sx1303PowerDriver.open(1, Arduino::GpioDriver::GpioDirection::OUT);
+        """
+    }
+
+    instance sx1303ResetDriver: Arduino.GpioDriver base id SX1303.SubtopologyConfig.BASE_ID + 0x00003000 {
+        phase Fpp.ToCpp.Phases.configComponents """
+        SX1303::sx1303ResetDriver.open(5, Arduino::GpioDriver::GpioDirection::OUT);
+        """
+    }
+
+    instance sx1303SpiDriver: Arduino.SpiDriver base id SX1303.SubtopologyConfig.BASE_ID + 0x00004000 {
+        phase Fpp.ToCpp.Phases.configComponents """
+        SX1303::sx1303SpiDriver.open(&SPI, Arduino::SpiDriver::SPI_FREQUENCY_4MHZ, 10);
         """
     }
 } 
