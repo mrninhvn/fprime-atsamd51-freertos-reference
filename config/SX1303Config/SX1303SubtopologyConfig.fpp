@@ -5,12 +5,12 @@ module SX1303 {
 
     module Components {
         constant QUEUE_SIZE = 2
-        constant STACK_SIZE = 2 * 1024
+        constant STACK_SIZE = 6 * 1024
     }
 
     instance sx1303PowerDriver: Arduino.GpioDriver base id SX1303.SubtopologyConfig.BASE_ID + 0x00002000 {
         phase Fpp.ToCpp.Phases.configComponents """
-        SX1303::sx1303PowerDriver.open(1, Arduino::GpioDriver::GpioDirection::OUT);
+        SX1303::sx1303PowerDriver.open(4, Arduino::GpioDriver::GpioDirection::OUT);
         """
     }
 
