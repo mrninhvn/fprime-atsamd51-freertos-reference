@@ -25,4 +25,7 @@ module SX1303 {
         SX1303::sx1303SpiDriver.open(&SPI, Arduino::SpiDriver::SPI_FREQUENCY_4MHZ, 10);
         """
     }
+
+    @ Lora MAC processor to received data from SX1303 and process it for LoRaWAN
+    instance sx1303DataProcessor: LORAMAC.LoRaMacProcessor base id SX1303.SubtopologyConfig.BASE_ID + 0x5000
 } 
