@@ -36,8 +36,9 @@ module ReferenceDeployment {
   # Passive component instances
   # ----------------------------------------------------------------------
 
-  instance rateGroup1: Svc.PassiveRateGroup base id 0x1000
-  instance rateGroup2: Svc.PassiveRateGroup base id 0x2000
+  # instance rateGroup0: Svc.PassiveRateGroup base id 0x1000
+  instance rateGroup1: Svc.PassiveRateGroup base id 0x2000
+  instance rateGroup2: Svc.PassiveRateGroup base id 0x3000
 
   instance comDriver: Arduino.StreamDriver base id 0x4000
 

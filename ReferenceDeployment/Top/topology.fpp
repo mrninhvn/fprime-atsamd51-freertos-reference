@@ -5,6 +5,7 @@ module ReferenceDeployment {
   # ----------------------------------------------------------------------
 
     enum Ports_RateGroups {
+      rateGroup0
       rateGroup1
       rateGroup2
     }
@@ -27,6 +28,7 @@ module ReferenceDeployment {
     instance eventManager
     instance fatalHandler
     instance rateDriver
+    # instance rateGroup0
     instance rateGroup1
     instance rateGroup2
     instance rateGroupDriver
@@ -57,12 +59,15 @@ module ReferenceDeployment {
       # Block driver
       rateDriver.CycleOut -> rateGroupDriver.CycleIn
 
-      # Rate group 1
+      # Rate group 0 - 1Hz
+      # rateGroupDriver.CycleOut[Ports_RateGroups.rateGroup0] -> rateGroup0.CycleIn
+
+      # Rate group 1 - 10Hz
       rateGroupDriver.CycleOut[Ports_RateGroups.rateGroup1] -> rateGroup1.CycleIn
       rateGroup1.RateGroupMemberOut[0] -> tlmSend.Run
       rateGroup1.RateGroupMemberOut[1] -> comDriver.schedIn
 
-      # Rate group 2
+      # Rate group 2 - 1000Hz
       rateGroupDriver.CycleOut[Ports_RateGroups.rateGroup2] -> rateGroup2.CycleIn
       rateGroup2.RateGroupMemberOut[0] -> osResources.Run
       rateGroup2.RateGroupMemberOut[1] -> SX1303.sx1303Manager.run
